@@ -262,7 +262,22 @@ class Admin_Menu extends MX_Controller {
      */
     public function deleteItemAction($id)
     {
+        $data = array();
+        $data['item'] = $this->admin_menu_model->getItem($id);
+        $menu_name = $data['item']['menu_name'];
 
+        if ($this->input->post('id'))
+        {
+            $this->admin_menu_model->deleteItem($this->input->post('id'), $data['item']);
+
+            $this->message->set('success', 'Пункт меню успешно удален');
+
+            redirect('admin/menu/'.$menu_name.'/items');
+        }
+
+        $this->base->setTitle('Удалить пункт меню');
+        $this->base->setContent($this->load->view('menu/delete_item.php', $data, TRUE));
+        $this->base->render();
     }
 
 }

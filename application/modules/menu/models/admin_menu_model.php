@@ -175,6 +175,13 @@ class Admin_Menu_Model extends CI_Model {
         return FALSE;
     }
 
+    /**
+     * Обновить пункт меню
+     * @param int $id идентификатор пункта меню
+     * @param array $data обновленные данные
+     * @param array $old_data данные до обновления
+     * @return bool
+     */
     public function updateItem($id, $data, $old_data)
     {
         // Если пункт не менял своего родителя
@@ -220,12 +227,13 @@ class Admin_Menu_Model extends CI_Model {
                     ->result_array();
 
                 $child_ids = array();
+                $level++;
                 foreach ($children as $child)
                 {
                     $child_ids[] = $child['id'];
                     $batches[] = array(
                         'id' => $child['id'],
-                        'level' => ++$level
+                        'level' => $level
                     );
                 }
             } while (!empty($child_ids));
@@ -238,9 +246,36 @@ class Admin_Menu_Model extends CI_Model {
     /**
      * Удаление пункта меню
      * @param $id
+     * @param $data
+     * @return bool
      */
-    public function deleteItem($id)
+    public function deleteItem($id, $data)
     {
+        // Удаление текущего пункта и всех его потомков
+        $delete_ids = array($id);
+        $child_ids = array($id);
+        do {
+            $children = $this->db
+                ->where_in('parent_id', $child_ids)
+                ->get('menu_items')
+                ->result_array();
+            $child_ids = array();
+            foreach ($children as $child)
+            {
+                $child_ids[] = $child['id'];
+                $delete_ids[] = $child['id'];
+            }
 
+        } while($child_ids);
+        $this->db->where_in('id', $delete_ids)->delete('menu_items');
+
+        // Обновить порядковый номер у соседей удаляемого пункта
+        $this->db->query('
+            UPDATE menu_items SET `order`=`order`-1
+            WHERE parent_id=? AND `order`>?',
+            array($data['parent_id'], $data['order'])
+        );
+
+        return TRUE;
     }
 }

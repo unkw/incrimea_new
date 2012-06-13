@@ -6,7 +6,7 @@
 
 <div>Вы действительно хотите удалить меню <i><?php echo $menu['title']; ?></i> ?</div>
 
-<?php print form_open('', array('id' => 'user-delete-form')); ?>
+<?php print form_open('', array('id' => 'menu-delete-form')); ?>
 <div class="form-item">
     <?php echo form_hidden('id', $menu['id']); ?>
     <?php echo form_submit('', 'Удалить'); ?>
