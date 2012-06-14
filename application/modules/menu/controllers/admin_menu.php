@@ -50,6 +50,8 @@ class Admin_Menu extends MX_Controller {
     {
         $data = array();
         $data['menu_name'] = $menu_name;
+//        $items = $this->admin_menu_model->getItems($menu_name);
+//        $data['items'] = tree_ordered_list($items);
         $data['items'] = $this->admin_menu_model->getItems($menu_name);
 
         $this->base->setTitle($menu_name);
@@ -257,7 +259,7 @@ class Admin_Menu extends MX_Controller {
     }
 
     /**
-     * Удалить пункт меню
+     * Удалить пункт меню и всех его потомков
      * @param int $id
      */
     public function deleteItemAction($id)

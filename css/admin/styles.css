@@ -553,11 +553,19 @@ a:hover {
 /*************************************************************
 ********************** MENU MODULE ***************************
 *************************************************************/
-#menu-table {
-    width: 400px;
+#tree-sortable {
+    width: 500px;
 }
-#menu-items-table {
-    width: 400px;
+#tree-sortable ul {
+    margin: 0 0 0 25px;
+}
+#tree-sortable li {
+}
+#tree-sortable .drag-handler-wrap {
+    float: left;
+    cursor: move;
+    margin: 3px 5px 0 2px;
+    padding: 0 5px 0 0;
 }
 
 /** Messages */
@@ -590,6 +598,18 @@ a:hover {
 }
 
 /** Global styles */
+.drag-handler {
+    width: 16px;
+    height: 17px;
+    background: url(/images/drag_handler.png) 0 -17px no-repeat;
+}
+.drag-handler:hover {
+    background-position: 0 -1px;
+}
+.indentantion {
+    width: 25px;
+    float: left;
+}
 .ajaxloader {
     display: none;
     width: 16px;

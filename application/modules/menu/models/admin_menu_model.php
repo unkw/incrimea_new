@@ -85,7 +85,13 @@ class Admin_Menu_Model extends CI_Model {
         if ($id == 1)
             return FALSE;
 
-        return $this->db->delete('menu', array('id' => $id));
+        // Удаляем меню
+        $this->db->delete('menu', array('id' => $id));
+
+        // Удаление всех пунктов меню
+        $this->db->delete('menu_items', array('menu_id' => $id));
+
+        return TRUE;
     }
 
     /**

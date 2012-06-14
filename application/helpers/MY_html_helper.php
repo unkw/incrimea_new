@@ -92,3 +92,104 @@ if ( ! function_exists('tree_dropdown_options')) {
         return $options;
     }
 }
+
+if ( ! function_exists('tree_ordered_list')) {
+
+    function tree_ordered_list($items)
+    {
+        $tree = array_tree($items);
+        $output = array();
+
+        function parse_level(&$output, $level_arr)
+        {
+            foreach ($level_arr as $item)
+            {
+                $output[] = $item;
+                if (count($item['children']) > 0)
+                    parse_level($output, $item['children']);
+            }
+        }
+
+        parse_level($output, $tree);
+
+        return $output;
+    }
+}
+
+if ( ! function_exists('tree_menu')) {
+
+    function tree_menu($items, $attrs = array())
+    {
+        $treeArr = array_tree($items);
+
+        function build_menu($rows, $parent_id=0, $attrs = array())
+        {
+            if ($parent_id == 0)
+            {
+                $html = '<ul';
+                foreach ($attrs as $key => $value)
+                    $html .= ' '.$key.'="'.$value.'"';
+                $html .= '>';
+            }
+            else
+            {
+                $html = '<ul>';
+            }
+
+            foreach ($rows as $row)
+            {
+                $html .= "<li>{$row['name']}";
+                if (count($row['children']) > 0)
+                {
+                    $html .= build_menu($row['children'], $row['id']);
+                }
+                $html .= '</li>';
+            }
+            $html .= '</ul>';
+            return $html;
+        }
+
+        return build_menu($treeArr, 0, $attrs);
+    }
+}
+
+if ( ! function_exists('tree_edit_menu')) {
+
+    function tree_edit_menu($items, $attrs = array())
+    {
+        $treeArr = array_tree($items);
+
+        function build_menu($rows, $parent_id=0, $attrs = array())
+        {
+            if ($parent_id == 0)
+            {
+                $html = '<ul';
+                foreach ($attrs as $key => $value)
+                    $html .= ' '.$key.'="'.$value.'"';
+            }
+            else
+            {
+                $html = '<ul';
+            }
+            $html .= ' class="sortable-list"';
+            $html .= '/>';
+
+            foreach ($rows as $row)
+            {
+                $html .= '<li><div>';
+                $html .= '<a class="drag-handler-wrap"><div class="drag-handler"></div></a>';
+                $html .= $row['name'];
+                $html .= '</div>';
+                if (count($row['children']) > 0)
+                {
+                    $html .= build_menu($row['children'], $row['id']);
+                }
+                $html .= '</li>';
+            }
+            $html .= '</ul>';
+            return $html;
+        }
+
+        return build_menu($treeArr, 0, $attrs);
+    }
+}
