@@ -23,6 +23,12 @@ class Auth {
         $this->_userIdentity();
     }
 
+    /**
+     * Авторизация
+     * @param string $identity
+     * @param string $pass
+     * @return bool
+     */
     public function login($identity, $pass)
     {
         $user = $this->CI->db

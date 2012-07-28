@@ -58,7 +58,7 @@ img {
 input {
 	vertical-align: middle;
 }
-#wrapper {
+.l-wrapper {
 	width: 1000px;
 	margin: 0 auto;
 }
@@ -66,7 +66,7 @@ input {
 
 /* Header
 -----------------------------------------------------------------------------*/
-#header {
+.l-header {
 	height: 150px;
 	background: #FFE680;
 }
@@ -74,31 +74,31 @@ input {
 
 /* Middle
 -----------------------------------------------------------------------------*/
-#middle {
+.l-columns {
 	width: 100%;
 	height: 1%;
 	position: relative;
 }
-#middle:after {
+.l-columns:after {
 	content: '.';
 	display: block;
 	clear: both;
 	visibility: hidden;
 	height: 0;
 }
-#container {
+.l-content {
 	width: 100%;
 	float: left;
 	overflow: hidden;
 }
-#content {
+.l-content-h {
 	padding: 0 0 0 270px;
 }
 
 
 /* Sidebar Left
 -----------------------------------------------------------------------------*/
-#sideLeft {
+.l-left {
 	float: left;
 	width: 250px;
 	margin-left: -100%;
@@ -109,7 +109,7 @@ input {
 
 /* Footer
 -----------------------------------------------------------------------------*/
-#footer {
+.l-footer {
 	height: 100px;
 	background: #BFF08E;
 }

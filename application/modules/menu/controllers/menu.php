@@ -13,8 +13,4 @@ class Menu extends MX_Controller {
         parent::__construct();
     }
 
-    public static function array_tree_list()
-    {
-
-    }
 }

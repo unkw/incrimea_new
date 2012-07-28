@@ -1,0 +1,17 @@
+.b-tabs-list {
+    margin: 4px 0 10px 0;
+    }
+    .b-tabs-item {
+        background: #F88E11;
+        display: inline-block;
+        padding: 1px 10px 3px 10px;
+        border-radius: 7px;
+        box-shadow: 0px 0px 2px #999;
+        margin-right: 5px;
+        }
+        .b-tabs-item:hover {
+            box-shadow: 0 0 2px #E0883F;
+            }
+        .b-tabs-item a {
+            color: #FFF;
+            }

@@ -15,8 +15,7 @@ class Base extends MX_Controller {
     /**
      * @var array Параметры шаблона
      */
-    protected $_data = array(
-        'head_title' => 'Incrimea',
+    protected  $_data = array(
         'title' => '',
         'content' => ''
     );
@@ -35,6 +34,9 @@ class Base extends MX_Controller {
     {
         parent::__construct();
 
+        // Определение реального пути (если используются синнонимы)
+        $this->path_lib->identity();
+
         // Назначение суффикса методу
         $method = $this->router->fetch_method() . $this->_actionSuffix;
         $this->router->set_method($method);
@@ -49,11 +51,15 @@ class Base extends MX_Controller {
         $class = $this->router->fetch_class();
         if (preg_match('/^admin/', $class))
         {
+            $this->load->library('tabs');
+
             $this->setLayout('dashboard');
+            $this->breadcrumb->add('Админ. панель', 'admin');
         }
 
-        // Профайлер (Для режима разработки)
-        if (ENVIRONMENT == 'development')
+        // Профайлер (Для админов)
+        $user = $this->auth->user();
+        if ($user && $user->role == 'admin')
             $this->output->enable_profiler(TRUE);
     }
 
@@ -63,6 +69,15 @@ class Base extends MX_Controller {
     public function render()
     {
         $this->load->view('layouts/' . $this->_layout . EXT, $this->_data);
+    }
+
+    /**
+     * Получить заголовок страницы
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->_data['title'];
     }
 
     /**
@@ -90,6 +105,15 @@ class Base extends MX_Controller {
     public function setLayout($name)
     {
         $this->_layout = $name;
+    }
+
+    public function ckeditor_init()
+    {
+        $this->load->library('ckeditor');
+        $this->ckeditor->basePath = base_url().'asset/ckeditor/';
+        $this->ckeditor->config['toolbar'] = 'Full';
+        $this->ckeditor->config['language'] = 'ru';
+        $this->ckeditor->config['height'] = '350';
     }
 
 }

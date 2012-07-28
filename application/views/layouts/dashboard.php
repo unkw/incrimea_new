@@ -9,15 +9,23 @@
     <link rel="stylesheet" href="<?php print base_url(); ?>css/admin/styles.css" type="text/css" media="screen, projection" />
     <link href='http://fonts.googleapis.com/css?family=Andika&subset=latin,cyrillic' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="<?php print base_url(); ?>css/admin/jquery-ui.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="<?php print base_url(); ?>css/admin/tabs.css" type="text/css" media="screen, projection" />
 
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-ui.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/admin/admin.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/admin/uploaderObject.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/admin/jquery.uploader.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/admin/upload.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/admin/jquery.autoSubmit.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/debug.js"></script>
+    <!-- Libraries -->
+    <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/libs/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/libs/jquery-ui.js"></script>
+
+    <!-- Debug mode -->
+    <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/debug.js"></script>
+
+    <!-- Application core  -->
+    <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/App.js"></script>
+
+    <!-- Plugins -->
+
+    <!-- Modules -->
+    <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/modules/admin/alias.js"></script>
+
 </head>
 <body>
 
@@ -28,10 +36,10 @@
         <li><a href="<?php print base_url(); ?>admin/menu/list">Меню</a></li>
         <li><a href="#">Контент</a>
             <ul>
-                <li><a href="<?php print base_url(); ?>admin/page">Страницы</a></li>
-                <li><a href="<?php print base_url(); ?>admin/article">Статьи</a></li>
-                <li><a href="<?php print base_url(); ?>admin/event">События</a></li>
-                <li><a href="<?php print base_url(); ?>admin/object">Объекты</a></li>
+                <li><a href="<?php print base_url(); ?>admin/page/list">Страницы</a></li>
+                <li><a href="<?php print base_url(); ?>admin/article/list">Статьи</a></li>
+                <li><a href="<?php print base_url(); ?>admin/event/list">События</a></li>
+                <li><a href="<?php print base_url(); ?>admin/object/list">Объекты</a></li>
             </ul>
             </li>
             <li><a href="#">Модули</a>
@@ -54,17 +62,15 @@
 
     <div id="content">
 
-<!--        --><?php //if ($breadcrumb) : ?>
-<!--            <div id="breadcrumb">-->
-<!--                --><?php //print $breadcrumb; ?>
-<!--            </div>-->
-<!--        --><?php //endif; ?>
+        <div id="breadcrumb">
+            <?php print $this->breadcrumb->display(); ?>
+        </div>
 
         <?php echo $this->message->display(); ?>
 
         <h1><?php print $title; ?></h1>
 
-<!--        --><?php //if ($submenu) print $submenu ?>
+        <?php echo $this->tabs->display(); ?>
 
         <?php print $content; ?>
 

@@ -126,7 +126,7 @@ a:hover {
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ebebeb', endColorstr='#a1a1a1'); /* for IE */
     background: -webkit-gradient(linear, left top, left bottom, from(#ebebeb), to(#a1a1a1)); /* for webkit browsers */
     background: -moz-linear-gradient(top,  #ebebeb,  #a1a1a1); /* for firefox 3.6+ */
-    background: -o-linear-gradient(top,  #ebebeb,  #a1a1a1); 
+    background: -o-linear-gradient(top,  #ebebeb,  #a1a1a1);
 
     color: #444;
     border-top: solid 1px #f8f8f8;
@@ -210,43 +210,7 @@ a:hover {
 
 /** Breadcrumb */
 #breadcrumb {
-    
-}
-/** Submenu */
-#submenu {
-    float: right;
-}
-#submenu li {
-    float: left;
-    margin: 0 6px 6px 0;
-}
-#submenu li a {
-    display: block;
-    border-radius: 0.5em 0.5em 0.5em 0.5em;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    font: 14px/100% Arial,Helvetica,sans-serif;
-    margin: 0 2px;
-    outline: medium none;
-    padding: 0.3em 1.5em 0.35em;
-    text-align: center;
-    text-decoration: none;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-    vertical-align: baseline;
-    background: #F47A20;
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAA51A', endColorstr='#F47A20'); /* for IE */
-    background: -webkit-gradient(linear, left top, left bottom, from(#FAA51A), to(#F47A20)); /* for webkit browsers */
-    background: -moz-linear-gradient(center top , #FAA51A, #F47A20) repeat scroll 0 0 transparent;
-    background: -o-linear-gradient(top , #FAA51A, #F47A20) repeat scroll 0 0 transparent;
-    border: 1px solid #DA7C0C;
-    color: #FEF4E9;
-}
-#submenu li a:hover {
-    background: #F47A20;
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#F88E11', endColorstr='#F06015'); /* for IE */
-    background: -webkit-gradient(linear, left top, left bottom, from(#F88E11), to(#F06015)); /* for webkit browsers */
-    background: -moz-linear-gradient(center top , #F88E11, #F06015) repeat scroll 0 0 transparent;
-    background: -o-linear-gradient(top , #F88E11, #F06015) repeat scroll 0 0 transparent;
+
 }
 
 /** Content */
@@ -400,38 +364,38 @@ a:hover {
 }
 
 /** Content edit tables */
-#edit-content .left-col {
+.edit-content .left-col {
     vertical-align: top;
     width: 450px;
 }
-#edit-content .right-col {
+.edit-content .right-col {
     vertical-align: top;
     padding: 0 0 0 30px;
 }
-#edit-content input[name="edit-image-desc"] {
+.edit-content input[name="edit-image-desc"] {
     width: 250px;
 }
-#edit-content input[name="edit-beach-distance"] {
+.edit-content input[name="edit-beach-distance"] {
     width: 60px;
 }
-#edit-content .field-wrapper {
+.edit-content .field-wrapper {
     clear: both;
 }
-#edit-content .checkboxes-field {
+.edit-content .checkboxes-field {
     float: left;
     margin-right: 25px;
 }
-#edit-content .checkboxes-field:last-child {
+.edit-content .checkboxes-field:last-child {
     margin-right: 0;
 }
-#edit-content #img-container {
+.edit-content #img-container {
     position: relative;
 }
-#edit-content #img-container img {
+.edit-content #img-container img {
     border: 2px solid #CCC;
     padding: 1px;
 }
-#edit-content #img-remove {
+.edit-content #img-remove {
     position: absolute;
     display: block;
     width: 16px;
@@ -440,57 +404,57 @@ a:hover {
     top: -4px;
     left: -2px;
 }
-#edit-content .room-field {
+.edit-content .room-field {
     margin: 15px 0 0 0;
     padding: 0 0 15px 0;
     border-bottom: 1px solid #CCC;
 }
-#edit-content .room-field .sub-field {
+.edit-content .room-field .sub-field {
     float: left;
     margin-right: 10px;
 }
-#edit-content .room-field .title {
+.edit-content .room-field .title {
     width: 350px;
 }
-#edit-content .room-field .num_beds,
-#edit-content .room-field .num_rooms {
+.edit-content .room-field .num_beds,
+.edit-content .room-field .num_rooms {
     width: 25px;
 }
-#edit-content .room-field .in-room-field {
+.edit-content .room-field .in-room-field {
     width: 320px;
 }
-#edit-content .room-field .in-room-field li {
+.edit-content .room-field .in-room-field li {
     float: left;
     width: 160px;
 }
-#edit-content .tarifs-field .tarifs-table {
+.edit-content .tarifs-field .tarifs-table {
     width: 400px;
 }
-#edit-content .tarifs-field .date {
+.edit-content .tarifs-field .date {
     width: 80px;
 }
-#edit-content .tarifs-field .price {
+.edit-content .tarifs-field .price {
     width: 40px;
 }
-#edit-content .pics-wrapper li {
+.edit-content .pics-wrapper li {
     float: left;
     margin: 5px 5px 0 0;
     width: 125px;
 }
 
-#edit-content input[type="button"],
-#edit-content input[type="submit"] {
+.edit-content input[type="button"],
+.edit-content input[type="submit"] {
     margin: 10px 5px 0 0;
 }
-#edit-content input[type="button"]:focus,
-#edit-content input[type="submit"]:focus {
+.edit-content input[type="button"]:focus,
+.edit-content input[type="submit"]:focus {
     background: #FFF;
 }
-#edit-content .beach-distance {
+.edit-content .beach-distance {
     float: left;
     margin-right: 15px;
 }
-#edit-content .sub-label {
+.edit-content .sub-label {
     color: #666;
 }
 
@@ -501,7 +465,7 @@ a:hover {
     margin: 15px 0;
 }
 .form-text, .form-textarea {
-    width: 400px;
+    width: 100%;
     margin-top: 5px;
 }
 .form-label {
@@ -554,7 +518,7 @@ a:hover {
 ********************** MENU MODULE ***************************
 *************************************************************/
 #tree-sortable {
-    width: 500px;
+    width: 380px;
 }
 #tree-sortable ul {
     margin: 0 0 0 25px;
@@ -564,8 +528,22 @@ a:hover {
 #tree-sortable .drag-handler-wrap {
     float: left;
     cursor: move;
-    margin: 3px 5px 0 2px;
-    padding: 0 5px 0 0;
+    margin: 3px 3px 0 2px;
+    padding: 0 3px 0 0;
+}
+.sortable-list li {
+    margin: 7px 0 0 0;
+}
+.sortable-list li > div {
+    border: 1px solid #999;
+}
+.sortable-list li > div:hover {
+    background: #BDE5F8;
+}
+.sortable-list .action {
+    font-size: 11px;
+    margin: 2px 3px 0 5px;
+    float: right;
 }
 
 /** Messages */
@@ -606,6 +584,10 @@ a:hover {
 .drag-handler:hover {
     background-position: 0 -1px;
 }
+.sortable-list .placeholder {
+    background: #778899;
+}
+
 .indentantion {
     width: 25px;
     float: left;

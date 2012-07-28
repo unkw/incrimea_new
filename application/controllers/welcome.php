@@ -17,10 +17,8 @@ class Welcome extends MX_Controller {
 	{
         $this->base->setTitle('Добро пожаловать на сайт Incrimea');
         $this->base->setContent('Это главная страница');
-
         $this->base->render();
 	}
-
 }
 
 /* End of file welcome.php */

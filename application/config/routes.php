@@ -38,6 +38,7 @@
 |
 */
 
+
 // Модуль "МЕНЮ"
 $route['admin/menu/(:any)/items/(:any)'] = 'menu/admin_menu/$2item/$1';
 $route['admin/menu/item/(:any)/(:num)'] = 'menu/admin_menu/$1item/$2';
@@ -46,6 +47,7 @@ $route['admin/menu/(:any)/items'] = 'menu/admin_menu/index/$1';
 // Админ. панель
 $route['admin/([a-z]+)/(:any)'] = "$1/admin_$1/$2";
 $route['admin/([a-z]+)'] = "$1/admin_$1";
+$route['admin'] = "admin";
 
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';

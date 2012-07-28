@@ -26,20 +26,31 @@
 <!---->
 <!--</table>-->
 
-<?php
-
-    echo tree_edit_menu($items, array('id'=>'tree-sortable'));
-
-?>
+<?php echo tree_edit_menu($items, array('id'=>'tree-sortable')); ?>
 
 <?php echo anchor('admin/menu/'.$menu_name.'/items/add', 'Добавить пункт'); ?>
+
+<a href="#" id="toHierarchy">Получить массив</a>
 
 <script type="text/javascript">
 
     $(function(){
 
-        $('#tree-sortable').treeSortable({
+        $('.sortable-list').nestedSortable({
+            listType: 'ul',
+            items: 'li',
+            handle: '.drag-handler-wrap',
+            helper: 'clone',
+            forcePlaceholderSize: true,
+            placeholder: 'placeholder',
+            revert: 250,
+            opacity: 0.6
+        });
 
+        $('#toHierarchy').click(function(){
+            var data = $('.sortable-list').nestedSortable('toHierarchy', {startDepthCount: 0});
+            var_dump(data);
+            return false;
         });
     });
 

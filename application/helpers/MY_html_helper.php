@@ -179,7 +179,10 @@ if ( ! function_exists('tree_edit_menu')) {
                 $html .= '<li><div>';
                 $html .= '<a class="drag-handler-wrap"><div class="drag-handler"></div></a>';
                 $html .= $row['name'];
+                $html .= anchor('admin/menu/item/delete/'.$row['id'], 'del', array('class'=>'action'));
+                $html .= anchor('admin/menu/item/edit/'.$row['id'], 'edit', array('class'=>'action'));
                 $html .= '</div>';
+
                 if (count($row['children']) > 0)
                 {
                     $html .= build_menu($row['children'], $row['id']);

@@ -20,6 +20,9 @@ class Admin_User extends MX_Controller {
         $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
         $this->form_validation->CI =& $this;
 
+        // Хлебная крошка
+        $this->breadcrumb->add('Пользователи', 'admin/user/list');
+
         // Загрузка основной модели
         $this->load->model('user/admin_user_model');
     }
@@ -108,6 +111,9 @@ class Admin_User extends MX_Controller {
         );
         $data['roles'] = $this->admin_user_model->getRoles();
 
+        // Хлебная крошка
+        $this->breadcrumb->add('Создание', current_url());
+
         $this->base->setTitle('Создание пользователя');
         $this->base->setContent($this->load->view('user/edit.php', $data, TRUE));
         $this->base->render();
@@ -142,6 +148,9 @@ class Admin_User extends MX_Controller {
         $data['roles'] = $this->admin_user_model->getRoles();
         $data['user'] = $this->admin_user_model->get($id);
 
+        // Хлебная крошка
+        $this->breadcrumb->add('Редактирование', current_url());
+
         $this->base->setTitle('Редактирование пользователя');
         $this->base->setContent($this->load->view('user/edit.php', $data, TRUE));
         $this->base->render();
@@ -168,6 +177,9 @@ class Admin_User extends MX_Controller {
         $data = array();
         $data['user'] = $this->admin_user_model->get($id);
 
+        // Хлебная крошка
+        $this->breadcrumb->add('Удаление', current_url());
+
         $this->base->setTitle('Удаление пользователя');
         $this->base->setContent($this->load->view('user/delete.php', $data, TRUE));
         $this->base->render();
@@ -179,6 +191,9 @@ class Admin_User extends MX_Controller {
     public function settingsAction()
     {
         $data = array();
+
+        // Хлебная крошка
+        $this->breadcrumb->add('Настройки', current_url());
 
         $this->base->setTitle('Настройки пользователей');
         $this->base->setContent($this->load->view('user/settings.php', $data, TRUE));
