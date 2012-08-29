@@ -149,7 +149,7 @@ if ( ! function_exists('load_class'))
 			}
 		}
 
-		// Is the request a class extension?  If so we load it too
+		// Is the request a class extension?  If so we loader it too
 		if (file_exists(APPPATH.$directory.'/'.config_item('subclass_prefix').$class.'.php'))
 		{
 			$name = config_item('subclass_prefix').$class;

@@ -266,7 +266,7 @@ class CI_DB_driver {
 		}
 
 		// Is query caching enabled?  If the query is a "read type"
-		// we will load the caching class and return the previously
+		// we will loader the caching class and return the previously
 		// cached query if it exists
 		if ($this->cache_on == TRUE AND stristr($sql, 'SELECT'))
 		{

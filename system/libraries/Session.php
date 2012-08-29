@@ -75,13 +75,13 @@ class CI_Session {
 		// Load the string helper so we can use the strip_slashes() function
 		$this->CI->load->helper('string');
 
-		// Do we need encryption? If so, load the encryption class
+		// Do we need encryption? If so, loader the encryption class
 		if ($this->sess_encrypt_cookie == TRUE)
 		{
 			$this->CI->load->library('encrypt');
 		}
 
-		// Are we using a database?  If so, load it
+		// Are we using a database?  If so, loader it
 		if ($this->sess_use_database === TRUE AND $this->sess_table_name != '')
 		{
 			$this->CI->load->database();

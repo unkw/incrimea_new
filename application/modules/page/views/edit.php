@@ -43,7 +43,7 @@
 
         <div class="form-item">
             <div><label class="form-label">Текст страницы</label></div>
-            <?php $this->ckeditor->editor('page[body]', html_entity_decode(set_value('page[body]', $page['body']))); ?>
+            <?php echo $this->ckeditor->editor('page[body]', html_entity_decode(set_value('page[body]', $page['body']))); ?>
         </div>
 
     </td>

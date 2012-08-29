@@ -44,7 +44,7 @@ class CI_Javascript {
 
 		$this->CI =& get_instance();
 
-		// load the requested js library
+		// loader the requested js library
 		$this->CI->load->library('javascript/'.$js_library_driver, array('autoload' => $autoload));
 		// make js to refer to current library
 		$this->js =& $this->CI->$js_library_driver;
@@ -214,7 +214,7 @@ class CI_Javascript {
 	/**
 	 * Load
 	 *
-	 * Outputs a javascript library load event
+	 * Outputs a javascript library loader event
 	 *
 	 * @access	public
 	 * @param	string	The element to attach the event to

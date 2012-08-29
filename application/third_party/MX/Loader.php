@@ -144,7 +144,7 @@ class MX_Loader extends CI_Loader
 		
 		list($path, $_library) = Modules::find($library, $this->_module, 'libraries/');
 		
-		/* load library config file as params */
+		/* loader library config file as params */
 		if ($params == NULL) {
 			list($path2, $file) = Modules::find($_alias, $this->_module, 'config/');	
 			($path2) AND $params = Modules::load_file($file, $path2, 'config');
@@ -303,7 +303,7 @@ class MX_Loader extends CI_Loader
 		}
 
 		if (empty($_ci_path)) 
-			show_error('Unable to load the requested file: '.$_ci_file);
+			show_error('Unable to loader the requested file: '.$_ci_file);
 
 		if (isset($_ci_vars)) 
 			$this->_ci_cached_vars = array_merge($this->_ci_cached_vars, (array) $_ci_vars);
@@ -411,5 +411,5 @@ class MX_Loader extends CI_Loader
 	}
 }
 
-/** load the CI class for Modular Separation **/
+/** loader the CI class for Modular Separation **/
 (class_exists('CI', FALSE)) OR require dirname(__FILE__).'/Ci.php';

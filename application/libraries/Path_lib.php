@@ -83,7 +83,7 @@ class Path_lib {
             $valid[] = url_title(convert_accented_characters($part), 'dash', TRUE);
         }
 
-        return implode(',', $valid);
+        return implode('/', $valid);
     }
 
     /**

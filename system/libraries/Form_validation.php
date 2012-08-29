@@ -46,7 +46,7 @@ class CI_Form_validation {
 		// Validation rules can be stored in a config file.
 		$this->_config_rules = $rules;
 
-		// Automatically load the form helper
+		// Automatically loader the form helper
 		$this->CI->load->helper('form');
 
 		// Set the character encoding in MB.

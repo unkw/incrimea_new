@@ -1,0 +1,12 @@
+.b-content {
+    position: relative;
+    }
+    .b-content .b-img {
+        float: left;
+        margin: 0 20px 0px 0;
+        line-height: 0;
+        }
+        .b-content.mod_article .b-img img {
+            }
+    /* MOD: object */
+        

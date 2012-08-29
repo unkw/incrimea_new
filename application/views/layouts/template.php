@@ -7,8 +7,9 @@
 <title><?php echo Modules::run('metatags/title'); ?></title>
 <?php echo Modules::run('metatags/html'); ?>
 
-<link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" type="text/css" media="screen, projection" />
-<link rel="stylesheet" href="<?php echo base_url(); ?>css/messages.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/layout.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/main.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/messages.css" type="text/css" media="screen, projection" />
 
 <!-- Libraries -->
 <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/libs/jquery.js"></script>

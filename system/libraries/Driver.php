@@ -72,8 +72,8 @@ class CI_Driver_Library {
 				// it's a valid driver, but the file simply can't be found
 				if ( ! class_exists($child_class))
 				{
-					log_message('error', "Unable to load the requested driver: ".$child_class);
-					show_error("Unable to load the requested driver: ".$child_class);
+					log_message('error', "Unable to loader the requested driver: ".$child_class);
+					show_error("Unable to loader the requested driver: ".$child_class);
 				}
 			}
 

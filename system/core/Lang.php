@@ -86,7 +86,7 @@ class CI_Lang {
 			$idiom = ($deft_lang == '') ? 'english' : $deft_lang;
 		}
 
-		// Determine where the language file is and load it
+		// Determine where the language file is and loader it
 		if ($alt_path != '' && file_exists($alt_path.'language/'.$idiom.'/'.$langfile))
 		{
 			include($alt_path.'language/'.$idiom.'/'.$langfile);
@@ -107,7 +107,7 @@ class CI_Lang {
 
 			if ($found !== TRUE)
 			{
-				show_error('Unable to load the requested language file: language/'.$idiom.'/'.$langfile);
+				show_error('Unable to loader the requested language file: language/'.$idiom.'/'.$langfile);
 			}
 		}
 

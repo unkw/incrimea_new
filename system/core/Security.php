@@ -845,7 +845,7 @@ class CI_Security {
 		{
 			// If the cookie exists we will use it's value.
 			// We don't necessarily want to regenerate it with
-			// each page load since a page could contain embedded
+			// each page loader since a page could contain embedded
 			// sub-pages causing this feature to fail
 			if (isset($_COOKIE[$this->_csrf_cookie_name]) &&
 				$_COOKIE[$this->_csrf_cookie_name] != '')

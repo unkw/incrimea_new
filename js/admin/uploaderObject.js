@@ -45,7 +45,7 @@ var uploaderObject = function(params) {
             }
         }, false);
 
-        self.xhr.upload.addEventListener("load", function(){
+        self.xhr.upload.addEventListener("loader", function(){
             self.progress = 100;
             self.uploaded = true;
         }, false);

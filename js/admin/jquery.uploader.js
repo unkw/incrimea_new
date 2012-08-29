@@ -130,7 +130,7 @@
                         }
                     }, false);
 
-                    xhr.upload.addEventListener("load", function(e){
+                    xhr.upload.addEventListener("loader", function(e){
                         progress = 100;
                         uploaded = true;
                     }, false);

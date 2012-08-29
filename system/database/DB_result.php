@@ -388,7 +388,7 @@ class CI_DB_result {
 	/**
 	 * The following functions are normally overloaded by the identically named
 	 * methods in the platform-specific driver -- except when query caching
-	 * is used.  When caching is enabled we do not load the other driver.
+	 * is used.  When caching is enabled we do not loader the other driver.
 	 * These functions are primarily here to prevent undefined function errors
 	 * when a cached result object is in use.  They are not otherwise fully
 	 * operational due to the unavailability of the database resource IDs with

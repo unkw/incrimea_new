@@ -19,7 +19,7 @@ spl_autoload_register('Modules::autoload');
  * @link	http://codeigniter.com
  *
  * Description:
- * This library provides functions to load and instantiate controllers
+ * This library provides functions to loader and instantiate controllers
  * and module controllers allowing use of modules and the HMVC design pattern.
  *
  * Install this file as application/third_party/MX/Modules.php
@@ -96,7 +96,7 @@ class Modules
 			/* set the module directory */
 			$path = APPPATH.'controllers/'.CI::$APP->router->fetch_directory();
 			
-			/* load the controller class */
+			/* loader the controller class */
 			$class = $class.CI::$APP->config->item('controller_suffix');
 			self::load_file($class, $path);
 			
@@ -147,7 +147,7 @@ class Modules
 			include_once $location;
 		} else { 
 		
-			/* load config or language array */
+			/* loader config or language array */
 			include $location;
 
 			if ( ! isset($$type) OR ! is_array($$type))				
@@ -196,7 +196,7 @@ class Modules
 	/** Parse module routes **/
 	public static function parse_routes($module, $uri) {
 		
-		/* load the route file */
+		/* loader the route file */
 		if ( ! isset(self::$routes[$module])) {
 			if (list($path) = self::find('routes', $module, 'config/') AND $path)
 				self::$routes[$module] = self::load_file('routes', $path, 'route');

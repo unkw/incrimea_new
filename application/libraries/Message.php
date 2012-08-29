@@ -11,7 +11,7 @@
  * A basic example of using the Message library looks like the following (this should be
  * executed in a controller):
  *
- *   $this->load->library('message');
+ *   $this->loader->library('message');
  *   $this->message->set('info', 'Hello, world!');
  *
  * I've skipped the configuration part (for now) but as you can see it only takes 2 lines
@@ -115,7 +115,7 @@ class Message
 	private $wrapper_suffix	= '';
 
 	/**
-	 * Constructor method, called whenever the library is loaded using $this->load->library()
+	 * Constructor method, called whenever the library is loaded using $this->loader->library()
 	 *
 	 * @access	public
 	 * @param   array $config Associative array containing all configuration options.
@@ -143,7 +143,7 @@ class Message
 	 * on the specified array.
 	 *
 	 * @example
-	 *  $this->load->library('message');
+	 *  $this->loader->library('message');
 	 *  $this->message->initialize(array(
 	 *      'wrapper_prefix' => 'container_'
 	 *  ));

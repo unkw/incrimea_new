@@ -59,8 +59,11 @@ class Base extends MX_Controller {
 
         // Профайлер (Для админов)
         $user = $this->auth->user();
-        if ($user && $user->role == 'admin')
-            $this->output->enable_profiler(TRUE);
+        if ($user && $user->role == 'admin') {
+            if ( ! $this->input->is_ajax_request() ) {
+                $this->output->enable_profiler(TRUE);
+            }
+        }
     }
 
     /**
@@ -107,6 +110,9 @@ class Base extends MX_Controller {
         $this->_layout = $name;
     }
 
+    /**
+     * Иницализация текстовго редактора CKEditor
+     */
     public function ckeditor_init()
     {
         $this->load->library('ckeditor');
