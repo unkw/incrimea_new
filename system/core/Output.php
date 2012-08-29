@@ -408,7 +408,7 @@ class CI_Output {
 		// --------------------------------------------------------------------
 
 		// Do we need to generate profile data?
-		// If so, load the Profile class and run it.
+		// If so, loader the Profile class and run it.
 		if ($this->enable_profiler == TRUE)
 		{
 			$CI->load->library('profiler');

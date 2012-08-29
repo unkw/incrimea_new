@@ -90,7 +90,7 @@
  * override exists.  If so, we will set this value now,
  * before any classes are loaded
  * Note: Since the config file data is cached it doesn't
- * hurt to load it here.
+ * hurt to loader it here.
  */
 	if (isset($assign_to_config['subclass_prefix']) AND $assign_to_config['subclass_prefix'] != '')
 	{
@@ -245,7 +245,7 @@
 	// If this include fails it means that the default controller in the Routes.php file is not resolving to something valid.
 	if ( ! file_exists(APPPATH.'controllers/'.$RTR->fetch_directory().$RTR->fetch_class().'.php'))
 	{
-		show_error('Unable to load your default controller. Please make sure the controller specified in your Routes.php file is valid.');
+		show_error('Unable to loader your default controller. Please make sure the controller specified in your Routes.php file is valid.');
 	}
 
 	include(APPPATH.'controllers/'.$RTR->fetch_directory().$RTR->fetch_class().'.php');

@@ -41,7 +41,7 @@
 | The $active_group variable lets you choose which connection group to
 | make active.  By default there is only one group (the 'default' group).
 |
-| The $active_record variables lets you determine whether or not to load
+| The $active_record variables lets you determine whether or not to loader
 | the active record class
 */
 

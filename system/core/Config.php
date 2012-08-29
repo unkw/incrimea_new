@@ -41,7 +41,7 @@ class CI_Config {
 	 */
 	var $is_loaded = array();
 	/**
-	 * List of paths to search when trying to load a config file
+	 * List of paths to search when trying to loader a config file
 	 *
 	 * @var array
 	 */

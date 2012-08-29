@@ -33,7 +33,7 @@ var Path = {
         });
 
     }
-    
+
 };
 
 /** Загрузка изображений */
@@ -47,11 +47,12 @@ var ObjectGallery = {
 
     /** Инициализация */
     init: function(){
-        
+
         var self = this;
 
         this.imgWrapper = $('#edit-gallery').sortable({handle: 'img'});
         this.uploadSubmit = $('#upload-submit').click(function(){
+            self.inputFile.damnUploader('startUpload');
             self.inputFile.damnUploader('startUpload');
         });
 
@@ -61,7 +62,7 @@ var ObjectGallery = {
             onSelect: function(file){
 
                 self.displayImage(file);
-                
+
                 return false;
             },
             onLimitExceeded: function(){}

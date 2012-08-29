@@ -223,7 +223,7 @@ class CI_Jquery extends CI_Javascript {
 	/**
 	 * Load
 	 *
-	 * Outputs a jQuery load event
+	 * Outputs a jQuery loader event
 	 *
 	 * @access	private
 	 * @param	string	The element to attach the event to
@@ -232,7 +232,7 @@ class CI_Jquery extends CI_Javascript {
 	 */
 	function _load($element = 'this', $js = '')
 	{
-		return $this->_add_event($element, $js, 'load');
+		return $this->_add_event($element, $js, 'loader');
 	}	
 	
 	// --------------------------------------------------------------------
@@ -733,7 +733,7 @@ class CI_Jquery extends CI_Javascript {
 			$request_options .= "}";
 		}
 
-		$updater .= "\t\t$($container).load('$controller'$request_options);";
+		$updater .= "\t\t$($container).loader('$controller'$request_options);";
 		return $updater;
 	}
 

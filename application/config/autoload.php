@@ -16,7 +16,7 @@
 | Instructions
 | -------------------------------------------------------------------
 |
-| These are the things you can load automatically:
+| These are the things you can loader automatically:
 |
 | 1. Packages
 | 2. Libraries
@@ -29,7 +29,7 @@
 
 /*
 | -------------------------------------------------------------------
-|  Auto-load Packges
+|  Auto-loader Packges
 | -------------------------------------------------------------------
 | Prototype:
 |
@@ -42,7 +42,7 @@ $autoload['packages'] = array();
 
 /*
 | -------------------------------------------------------------------
-|  Auto-load Libraries
+|  Auto-loader Libraries
 | -------------------------------------------------------------------
 | These are the classes located in the system/libraries folder
 | or in your application/libraries folder.
@@ -65,7 +65,7 @@ $autoload['libraries'] = array(
 
 /*
 | -------------------------------------------------------------------
-|  Auto-load Helper Files
+|  Auto-loader Helper Files
 | -------------------------------------------------------------------
 | Prototype:
 |
@@ -77,7 +77,7 @@ $autoload['helper'] = array('url', 'form', 'html');
 
 /*
 | -------------------------------------------------------------------
-|  Auto-load Config files
+|  Auto-loader Config files
 | -------------------------------------------------------------------
 | Prototype:
 |
@@ -93,7 +93,7 @@ $autoload['config'] = array();
 
 /*
 | -------------------------------------------------------------------
-|  Auto-load Language files
+|  Auto-loader Language files
 | -------------------------------------------------------------------
 | Prototype:
 |
@@ -109,7 +109,7 @@ $autoload['language'] = array();
 
 /*
 | -------------------------------------------------------------------
-|  Auto-load Models
+|  Auto-loader Models
 | -------------------------------------------------------------------
 | Prototype:
 |

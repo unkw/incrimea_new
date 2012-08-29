@@ -22,9 +22,12 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/App.js"></script>
 
     <!-- Plugins -->
-
+    <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/plugins/utils/uploader.js"></script>
+    
     <!-- Modules -->
+    <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/modules/loader/tpl.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/modules/admin/alias.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/modules/admin/upload.js"></script>
 
 </head>
 <body>

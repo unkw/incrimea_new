@@ -150,7 +150,7 @@ class CKEditor
 		$out .= $this->script($js);
 
 		if (!$this->returnOutput) {
-			print $out;
+            print $out;
 			$out = "";
 		}
 

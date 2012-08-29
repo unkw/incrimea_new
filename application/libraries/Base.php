@@ -59,8 +59,11 @@ class Base extends MX_Controller {
 
         // Профайлер (Для админов)
         $user = $this->auth->user();
-        if ($user && $user->role == 'admin')
-            $this->output->enable_profiler(TRUE);
+        if ($user && $user->role == 'admin') {
+            if ( ! $this->input->is_ajax_request() ) {
+                $this->output->enable_profiler(TRUE);
+            }
+        }
     }
 
     /**
@@ -68,6 +71,7 @@ class Base extends MX_Controller {
      */
     public function render()
     {
+        $this->load->library('user_agent');
         $this->load->view('layouts/' . $this->_layout . EXT, $this->_data);
     }
 
@@ -107,6 +111,9 @@ class Base extends MX_Controller {
         $this->_layout = $name;
     }
 
+    /**
+     * Иницализация текстовго редактора CKEditor
+     */
     public function ckeditor_init()
     {
         $this->load->library('ckeditor');
@@ -114,6 +121,24 @@ class Base extends MX_Controller {
         $this->ckeditor->config['toolbar'] = 'Full';
         $this->ckeditor->config['language'] = 'ru';
         $this->ckeditor->config['height'] = '350';
+    }
+
+    /**
+     * Список глобальных css классов
+     * @return string
+     */
+    public function global_classes() {
+
+        $browser = mb_strtolower($this->agent->browser());
+        if ($browser == 'internet explorer') {
+            $browser = 'ie ie' . (int) $this->agent->version();
+        }
+
+        $global_classes = array(
+            'browser' => $browser,
+        );
+
+        return implode(' ', $global_classes);
     }
 
 }

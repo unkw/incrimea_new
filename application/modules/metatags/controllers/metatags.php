@@ -37,13 +37,22 @@ class Metatags extends MX_Controller {
     }
 
     /**
-     * Установить метатеги перед отображением в шаблоне
+     * Установить метатеги перед отображением в шаблоне по id
      * @param int $id
      */
-    public function set($id)
+    public function setById($id)
     {
-        $result = $this->metatags_model->get($id);
-        foreach ($result as $name => $content)
+        $data = $this->metatags_model->get($id);
+        $this->set($data);
+    }
+
+    /**
+     * Установить метатеги
+     * @param array $data
+     */
+    public function set($data)
+    {
+        foreach ($data as $name => $content)
         {
             if (isset($this->meta[$name]))
             {

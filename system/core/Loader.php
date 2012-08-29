@@ -37,28 +37,28 @@ class CI_Loader {
 	 */
 	protected $_ci_ob_level;
 	/**
-	 * List of paths to load views from
+	 * List of paths to loader views from
 	 *
 	 * @var array
 	 * @access protected
 	 */
 	protected $_ci_view_paths		= array();
 	/**
-	 * List of paths to load libraries from
+	 * List of paths to loader libraries from
 	 *
 	 * @var array
 	 * @access protected
 	 */
 	protected $_ci_library_paths	= array();
 	/**
-	 * List of paths to load models from
+	 * List of paths to loader models from
 	 *
 	 * @var array
 	 * @access protected
 	 */
 	protected $_ci_model_paths		= array();
 	/**
-	 * List of paths to load helpers from
+	 * List of paths to loader helpers from
 	 *
 	 * @var array
 	 * @access protected
@@ -183,7 +183,7 @@ class CI_Loader {
 	/**
 	 * Class Loader
 	 *
-	 * This function lets users load and instantiate classes.
+	 * This function lets users loader and instantiate classes.
 	 * It is designed to be called from a user's app controllers.
 	 *
 	 * @param	string	the name of the class
@@ -221,7 +221,7 @@ class CI_Loader {
 	/**
 	 * Model Loader
 	 *
-	 * This function lets users load and instantiate models.
+	 * This function lets users loader and instantiate models.
 	 *
 	 * @param	string	the name of the class
 	 * @param	string	name for the model
@@ -325,7 +325,7 @@ class CI_Loader {
 		// Grab the super object
 		$CI =& get_instance();
 
-		// Do we even need to load the database class?
+		// Do we even need to loader the database class?
 		if (class_exists('CI_DB') AND $return == FALSE AND $active_record == NULL AND isset($CI->db) AND is_object($CI->db))
 		{
 			return FALSE;
@@ -362,7 +362,7 @@ class CI_Loader {
 
 		$CI =& get_instance();
 
-		// for backwards compatibility, load dbforge so we can extend dbutils off it
+		// for backwards compatibility, loader dbforge so we can extend dbutils off it
 		// this use is deprecated and strongly discouraged
 		$CI->load->dbforge();
 
@@ -401,11 +401,11 @@ class CI_Loader {
 	/**
 	 * Load View
 	 *
-	 * This function is used to load a "view" file.  It has three parameters:
+	 * This function is used to loader a "view" file.  It has three parameters:
 	 *
 	 * 1. The name of the "view" file to be included.
 	 * 2. An associative array of data to be extracted for use in the view.
-	 * 3. TRUE/FALSE - whether to return the data or load it.  In
+	 * 3. TRUE/FALSE - whether to return the data or loader it.  In
 	 * some cases it's advantageous to be able to return data so that
 	 * a developer can process it in some way.
 	 *
@@ -508,7 +508,7 @@ class CI_Loader {
 
 				if ( ! file_exists($base_helper))
 				{
-					show_error('Unable to load the requested file: helpers/'.$helper.'.php');
+					show_error('Unable to loader the requested file: helpers/'.$helper.'.php');
 				}
 
 				include_once($ext_helper);
@@ -519,7 +519,7 @@ class CI_Loader {
 				continue;
 			}
 
-			// Try to load the helper
+			// Try to loader the helper
 			foreach ($this->_ci_helper_paths as $path)
 			{
 				if (file_exists($path.'helpers/'.$helper.'.php'))
@@ -532,10 +532,10 @@ class CI_Loader {
 				}
 			}
 
-			// unable to load the helper
+			// unable to loader the helper
 			if ( ! isset($this->_ci_helpers[$helper]))
 			{
-				show_error('Unable to load the requested file: helpers/'.$helper.'.php');
+				show_error('Unable to loader the requested file: helpers/'.$helper.'.php');
 			}
 		}
 	}
@@ -731,7 +731,7 @@ class CI_Loader {
 	/**
 	 * Loader
 	 *
-	 * This function is used to load views and files.
+	 * This function is used to loader views and files.
 	 * Variables are prefixed with _ci_ to avoid symbol collision with
 	 * variables made available to view files
 	 *
@@ -777,10 +777,10 @@ class CI_Loader {
 
 		if ( ! $file_exists && ! file_exists($_ci_path))
 		{
-			show_error('Unable to load the requested file: '.$_ci_file);
+			show_error('Unable to loader the requested file: '.$_ci_file);
 		}
 
-		// This allows anything loaded using $this->load (views, files, etc.)
+		// This allows anything loaded using $this->loader (views, files, etc.)
 		// to become accessible from within the Controller and Model functions.
 
 		$_ci_CI =& get_instance();
@@ -814,7 +814,7 @@ class CI_Loader {
 		 * 2. So that the final rendered template can be
 		 * post-processed by the output class.  Why do we
 		 * need post processing?  For one thing, in order to
-		 * show the elapsed page load time.  Unless we
+		 * show the elapsed page loader time.  Unless we
 		 * can intercept the content right before it's sent to
 		 * the browser and then stop the timer it won't be accurate.
 		 */
@@ -907,8 +907,8 @@ class CI_Loader {
 
 				if ( ! file_exists($baseclass))
 				{
-					log_message('error', "Unable to load the requested class: ".$class);
-					show_error("Unable to load the requested class: ".$class);
+					log_message('error', "Unable to loader the requested class: ".$class);
+					show_error("Unable to loader the requested class: ".$class);
 				}
 
 				// Safety:  Was the class already loaded by a previous call?
@@ -938,7 +938,7 @@ class CI_Loader {
 				return $this->_ci_init_class($class, config_item('subclass_prefix'), $params, $object_name);
 			}
 
-			// Lets search for the requested library file and load it.
+			// Lets search for the requested library file and loader it.
 			$is_duplicate = FALSE;
 			foreach ($this->_ci_library_paths as $path)
 			{
@@ -985,11 +985,11 @@ class CI_Loader {
 		}
 
 		// If we got this far we were unable to find the requested class.
-		// We do not issue errors if the load call failed due to a duplicate request
+		// We do not issue errors if the loader call failed due to a duplicate request
 		if ($is_duplicate == FALSE)
 		{
-			log_message('error', "Unable to load the requested class: ".$class);
-			show_error("Unable to load the requested class: ".$class);
+			log_message('error', "Unable to loader the requested class: ".$class);
+			show_error("Unable to loader the requested class: ".$class);
 		}
 	}
 

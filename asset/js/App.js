@@ -1,6 +1,8 @@
 
 var App = (function(self, window, document, $) {
     
+    "use strict";
+    
     var listeners = {};
     
     self.ns = function(nsString) {
@@ -12,7 +14,7 @@ var App = (function(self, window, document, $) {
             c[p[i]] = c[p[i]] || {};
             c = c[p[i]];
         }
-    }
+    };
     
     self.on = function(event, clb, scope) {
         
@@ -31,7 +33,7 @@ var App = (function(self, window, document, $) {
         });
         
         listeners[module] = o;
-    }
+    };
     
     self.trigger = function(event) {
         
@@ -46,7 +48,11 @@ var App = (function(self, window, document, $) {
                 tmp_listeners[i].clb.apply(tmp_listeners[i].scope || this, args);
             }
         }
-    }
+    };
+    
+    self.extend = function(parent, child) {
+        
+    };
     
     self.post = function(data) {
         
@@ -62,14 +68,14 @@ var App = (function(self, window, document, $) {
         }
     
         return postMessage(p);
-    }
+    };
     
     function postMessage(p) {
         
-        if (!this.modules[p.module] || typeof this.modules[p.module][p.action] !== 'function') {
+        if (!self.modules[p.module] || typeof self.modules[p.module][p.action] !== 'function') {
             // Add to queue
         } else {
-            return this.modules[p.module][p.action].apply(this.modules[p.module], p.msg) || true;
+            return self.modules[p.module][p.action].apply(self.modules[p.module], p.msg) || true;
         }
 
         return false;        

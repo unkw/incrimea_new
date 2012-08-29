@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" class="<?php echo $this->base->global_classes(); ?>">
 <head>
 
 <meta charset="utf-8" />
@@ -7,11 +7,13 @@
 <title><?php echo Modules::run('metatags/title'); ?></title>
 <?php echo Modules::run('metatags/html'); ?>
 
-<link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" type="text/css" media="screen, projection" />
-<link rel="stylesheet" href="<?php echo base_url(); ?>css/messages.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/layout.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/main.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/messages.css" type="text/css" media="screen, projection" />
 
 <!-- Libraries -->
 <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/libs/jquery.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>asset/js/libs/html5.js"></script>
 
 <!-- Debug mode -->
 <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/debug.js"></script>
