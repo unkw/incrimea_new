@@ -3,7 +3,7 @@
 // Upload file
 $config['upload'] = array(
     'options' => array(
-        'upload_path'   => 'asset/img/article',
+        'upload_path'   => 'asset/img/object',
         'allowed_types' => 'jpg|jpeg|png|gif',
         'max_size'      => '2000',
         'max_width'     => 0,

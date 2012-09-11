@@ -21,8 +21,9 @@ class Admin_Object extends MX_Controller {
         // Хлебная крошка
         $this->breadcrumb->add('Отели', 'admin/object/list');
 
-        // Загрузка основной модели
+        // Загрузка моделей
         $this->load->model('object/admin_object_model');
+        $this->load->model('object/object_model');
     }
 
     /**
@@ -87,17 +88,31 @@ class Admin_Object extends MX_Controller {
         {
             $this->admin_object_model->create($this->input->post());
 
-            $this->message->set('success', 'Создание статьи прошло успешно');
+            $this->message->set('success', 'Создание отеля прошло успешно');
 
             redirect('admin/object/list');
         }
 
         $this->breadcrumb->add('Создать');
 
-        $data = array();
+        $fields = $this->load->config('fields');
+        $data = array(
+            'obj' => array(
+                'types' => $fields['types'],
+                'beach' => array(
+                    'type' => $fields['beach']['type'],
+                    'distance' => $fields['beach']['distance'],
+                ),
+                'in_room' => $this->object_model->in_room(),
+                'infr' => $this->object_model->infrastructure(),
+                'entment' => $this->object_model->entertainment(),
+                'service' => $this->object_model->service(),
+                'for_child' => $this->object_model->for_child(),
+            ),
+        );
 
         $this->base->ckeditor_init();
-        $this->base->setTitle('Создание статьи');
+        $this->base->setTitle('Создание отеля');
         $this->base->setContent($this->load->view('object/create.php', $data, TRUE));
         $this->base->render();
     }
@@ -180,6 +195,6 @@ class Admin_Object extends MX_Controller {
             $this->admin_object_model->create_images($img);
             echo $img['file_name'];
         }
-    }    
+    }
 
 }

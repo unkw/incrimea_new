@@ -5,24 +5,64 @@ $config = array();
 // Создание
 $config['create'] = array(
     array(
-        'field' => 'article[title]',
+        'field' => 'object[title]',
         'label' => 'Заголовок',
         'rules' => 'required'
     ),
     array(
-        'field' => 'article[body]',
-        'label' => 'Текст страницы',
+        'field' => 'object[admin_info]',
+        'label' => 'Информация для администрации',
         'rules' => 'required'
     ),
     array(
-        'field' => 'article[status]',
+        'field' => 'object[short_info]',
+        'label' => 'Краткая информация',
+        'rules' => 'required'
+    ),
+    array(
+        'field' => 'object[type_id]',
+        'label' => 'Тип объекта',
+        'rules' => 'required'
+    ),
+    array(
+        'field' => 'object[price]',
+        'label' => 'Цены',
+        'rules' => 'required|is_numeric'
+    ),
+    array(
+        'field' => 'object[food]',
+        'label' => 'Питание',
+        'rules' => 'required'
+    ),
+    array(
+        'field' => 'object[beach_id]',
+        'label' => 'Тип пляжа',
+        'rules' => 'required'
+    ),
+    array(
+        'field' => 'object[beach_distance_id]',
+        'label' => 'Расстояние до пляжа',
+        'rules' => 'required'
+    ),
+    array(
+        'field' => 'object[priority]',
+        'label' => 'Приоритет',
+        'rules' => ''
+    ),
+    array(
+        'field' => 'object[status]',
         'label' => 'Статус',
         'rules' => ''
     ),
     array(
-        'field' => 'article[sticky]',
+        'field' => 'object[sticky]',
         'label' => 'Закреплять вверху списка',
         'rules' => ''
+    ),
+    array(
+        'field' => 'object[body]',
+        'label' => 'Основное описание',
+        'rules' => 'required'
     ),
     // Metatags
     array(
@@ -53,16 +93,21 @@ $config['create'] = array(
     ),
     // Resorts
     array(
-        'field' => 'article[resort_id]',
+        'field' => 'object[resort_id]',
         'label' => 'Курорт',
         'rules' => 'required'
     ),
     // Images
     array(
-        'field' => 'article[img]',
-        'label' => 'Титульное изображение',
+        'field' => 'object[img]',
+        'label' => 'Галерея',
         'rules' => 'required'
-    ), 
+    ),
+    array(
+        'field' => 'object[in_room]',
+        'label' => 'В номере',
+        'rules' => ''
+    ),
 );
 // Редактирование
 $config['edit'] = array_merge($config['create'], array(

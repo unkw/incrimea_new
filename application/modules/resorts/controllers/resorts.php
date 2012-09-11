@@ -28,6 +28,12 @@ class Resorts extends MX_Controller {
         foreach ($resorts as $resort) {
             $options[$resort['id']] = $resort['name'];
         }
-        echo form_dropdown($params['name'], $options, $params['value']);   
+        $extra = '';
+        foreach ($params as $attr => $val) {
+            if (!in_array($attr, array('name', 'value'))) {
+                $extra .= ' ' . $attr . '="' . $val . '"';
+            }
+        }
+        echo form_dropdown($params['name'], $options, $params['value'], $extra);
     }
 }

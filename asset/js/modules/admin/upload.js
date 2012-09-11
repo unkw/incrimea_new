@@ -33,7 +33,7 @@ App.modules.admin = (function(self) {
         
         this.module = this.el.data('module');
         this.multiple = this.el.prop('multiple');
-        this.limit = this.el.data('limit') || false;
+        this.limit = this.el.data('limit') || 25;
     
         this.uploader = this.el.Uploader({
             url: '/admin/' + this.module + '/upload',
@@ -119,7 +119,7 @@ App.modules.admin = (function(self) {
                 
                 item.find('img').attr('src', path);
                 item.find('.b-upload-remove a').click(function() {
-                    $(this).parent().parent().remove();
+                    $(this).closest('.b-upload-item').remove();
                     if (uploadId) {
                         self.el.Uploader('cancel', uploadId);
                     }

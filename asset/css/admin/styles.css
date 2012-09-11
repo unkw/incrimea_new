@@ -54,6 +54,7 @@ textarea, select {
     background: -ms-linear-gradient(top,  #f0f9ff 0%,#ffffff 99%); /* IE10+ */
     background: linear-gradient(top,  #f0f9ff 0%,#ffffff 99%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    resize: vertical;
 }
 input[type="text"]:focus, textarea:focus, select:focus {
     border: 1px solid #FCD083;
@@ -461,21 +462,74 @@ a:hover {
 /*************************************************************
 ************************** FORMS *****************************
 *************************************************************/
+
+.form-row {
+    margin: 15px 0;
+    }
+    .form-row .form-item {
+        display: inline-block;
+        margin: 0 0 0 10px;
+        vertical-align: top;
+        }
+        .form-row .form-item:first-child {
+            margin-left: 0;
+            }
+        .form-row .form-text {
+            width: auto;
+            }
+    /* SPACE: medium */
+    .form-row .form-item.space_medium {
+        margin-left: 25px;
+        }
 .form-item {
     margin: 15px 0;
-}
-.form-text, .form-textarea {
-    width: 100%;
-    margin-top: 5px;
-}
-.form-label {
-    font-weight: bold;
-}
-.form-desc {
-    color: #9C9C9C;
-    font-size: 12px;
-}
+    }
+    /* VIEW: row */
+    .form-item.view_row {
 
+        }
+        .form-item.view_row .form-label {
+            margin-bottom: 3px;
+            }
+        .form-item.view_row .form-item-td {
+            display: inline-block;
+            margin: 0 0 0 10px;
+            }
+            .form-item.view_row .form-item-td:first-child {
+                margin-left: 0;
+                }
+            .form-item.view_row .form-text {
+                width: auto;
+                margin: 2px 0;
+                }
+    .form-item.short {
+        width: 100px;
+        }
+    .form-item.medium {
+        width: 200px;
+        }
+    /* default */
+    .form-text, .form-textarea {
+        width: 100%;
+        margin: 5px 0;
+        }
+    .form-select {
+        margin-top: 5px;
+        }
+    .form-label {
+        font-weight: bold;
+        margin: 0 0 5px 0;
+        }
+    .form-desc {
+        color: #9C9C9C;
+        font-size: 12px;
+        }
+    .form-cbx-list {
+
+        }
+        .form-cbx-item {
+            margin: 5px 0;
+            }
 /*************************************************************
 ********************** MENU MODULE ***************************
 *************************************************************/
@@ -569,6 +623,9 @@ a:hover {
 .yellow {
     color: #FFE680;
 }
+g-inline {
+    display: inline-block;
+    }
 
 /***********************************************
 **************** Upload module *****************

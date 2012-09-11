@@ -2,9 +2,14 @@
 /**
  * Created by JetBrains PhpStorm.
  * User: Kemal
- * Date: 09.06.12
- * Time: 16:37
- * To change this template use File | Settings | File Templates.
+ * Date: 30.08.12
+ * Time: 21:37
+ *
+ * TABLE: obj_fields
+ *      cat_id:
+ *      1 - типы объектов
+ *      2 - пляж: типы
+ *      3 - пляж: дистанции
  */
 class Admin_Object_Model extends CI_Model {
 
@@ -60,21 +65,25 @@ class Admin_Object_Model extends CI_Model {
     }
 
     /**
-     * Создать статью
+     * Создать
      * @param array $data
      * @return int
      */
     public function create($data)
     {
+        print '<pre>';
+        print_r($data);
+        print '</pre>';
+        die;
+
         // Метатеги
         $this->load->model('metatags/metatags_model');
         $data['object']['meta_id'] = $this->metatags_model->create($data['meta']);
 
         $data['object']['created_date'] = time();
-        $data['object']['author_id'] = $this->auth->user()->id;
 
         $data['object']['status'] = isset($data['object']['status']) ? 1 : 0;
-        $data['object']['sticky'] = isset($data['object']['sticky']) ? 1 : 0;
+
         $this->db->insert($this->_table, $data['object']);
         $object_id = $this->db->insert_id();
 
@@ -133,7 +142,18 @@ class Admin_Object_Model extends CI_Model {
         return FALSE;
     }
 
-    /**             
+    /**
+     * Получить список типов объектов
+     * Отели, пансионаты, частный сектор и т.д.
+     * @return array
+     */
+    public function get_types()
+    {
+        $result = $this->db->get_where('obj_fields', array('cat_id' => 1))->result_array();
+        return $result;
+    }
+
+    /**
      * @param array $img
      */
     public function create_images($img)
@@ -144,13 +164,25 @@ class Admin_Object_Model extends CI_Model {
         $default_config = $conf['image_lib'];
         $origin_img = 'asset/img/object/' . $img['file_name'];
 
+        $this->load->library('image_lib');
+
+        /** Создание изображения 640x480 */
+        $config = array_merge($default_config, array('width' => 640, 'height' => 480));
+        $source = $origin_img;
+        $new = 'asset/img/object/640x480/' . $img['file_name'];
+        $config['source_image'] = $source;
+        $config['new_image'] = $new;
+        $this->image_lib->initialize($config);
+        $this->image_lib->resize();
+        $this->image_lib->clear();
+
         /** Создание изображения 400x300 */
         $config = array_merge($default_config, array('width' => 400, 'height' => 300));
         $source = $origin_img;
         $new = 'asset/img/object/400x300/' . $img['file_name'];
         $config['source_image'] = $source;
         $config['new_image'] = $new;
-        $this->load->library('image_lib', $config);
+        $this->image_lib->initialize($config);
         $this->image_lib->resize();
         $this->image_lib->clear();
 

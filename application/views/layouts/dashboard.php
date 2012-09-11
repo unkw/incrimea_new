@@ -6,10 +6,10 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
 
-    <link rel="stylesheet" href="<?php print base_url(); ?>css/admin/styles.css" type="text/css" media="screen, projection" />
-    <link href='http://fonts.googleapis.com/css?family=Andika&subset=latin,cyrillic' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="<?php print base_url(); ?>css/admin/jquery-ui.css" type="text/css" media="screen, projection" />
-    <link rel="stylesheet" href="<?php print base_url(); ?>css/admin/tabs.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="<?php print base_url(); ?>asset/css/admin/styles.css" type="text/css" media="screen, projection" />
+<!--    <link href='http://fonts.googleapis.com/css?family=Andika&subset=latin,cyrillic' rel='stylesheet' type='text/css' />-->
+    <link rel="stylesheet" href="<?php print base_url(); ?>asset/css/admin/jquery-ui.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="<?php print base_url(); ?>asset/css/admin/tabs.css" type="text/css" media="screen, projection" />
 
     <!-- Libraries -->
     <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/libs/jquery.js"></script>
@@ -28,6 +28,7 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/modules/loader/tpl.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/modules/admin/alias.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/modules/admin/upload.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>asset/js/modules/admin/object.js"></script>
 
 </head>
 <body>
